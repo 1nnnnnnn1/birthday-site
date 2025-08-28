@@ -1,0 +1,55 @@
+:root {
+  --bg: #0f0f12;
+  --card: #16161b;
+  --text: #eaeaf2;
+  --muted: #a4a6b3;
+  --accent: #ffd166;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg); color: var(--text);
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+#confetti-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
+
+.hero {
+  min-height: 70vh; display: grid; place-items: center; text-align: center;
+  padding: 6rem 1.25rem 3rem;
+  background: radial-gradient(1200px 600px at 50% -20%, #2a2a33, transparent 70%);
+}
+.hero h1 { margin: 0 0 0.5rem; font-size: clamp(2rem, 3.5vw + 1rem, 4rem); }
+.hero p { color: var(--muted); margin: 0 0 1.25rem; max-width: 50ch; }
+.btn { background: var(--accent); color: #1a1a1a; padding: 0.75rem 1rem; border-radius: 0.6rem; text-decoration: none; font-weight: 600; }
+
+.video-card { max-width: 900px; margin: 0 auto; background: var(--card); border-radius: 1rem; overflow: hidden; position: relative; }
+video { width: 100%; height: auto; display: block; }
+.unmute { position: absolute; right: 0.75rem; bottom: 0.75rem; background: rgba(255, 209, 102, 0.92); color: #1a1a1a; border: none; border-radius: 2rem; padding: 0.5rem 0.75rem; cursor: pointer; }
+.caption { color: var(--muted); text-align: center; margin-top: 0.75rem; }
+
+.love-letter, .timeline, .gallery, .birthday-message { padding: 2rem 1rem; max-width: 980px; margin: 0 auto; }
+.timeline .tl { border-left: 2px solid #2b2b34; padding-left: 1rem; }
+.timeline .item { position: relative; margin: 1rem 0 1.5rem; }
+.timeline .dot { position: absolute; left: -10px; top: 0.25rem; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; }
+
+.gallery .strip { display: grid; grid-auto-flow: column; grid-auto-columns: 80%; gap: 0.75rem; overflow-x: auto; scroll-snap-type: x mandatory; }
+.gallery img { width: 100%; height: 240px; object-fit: cover; border-radius: 0.75rem; scroll-snap-align: start; }
+
+.birthday-message {
+  background: linear-gradient(135deg, rgba(255, 209, 102, 0.15), rgba(239, 71, 111, 0.1));
+  border-radius: 1rem; box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  text-align: center;
+}
+.birthday-message h2 { color: var(--accent); }
+.birthday-message .signature { margin-top: 1.5rem; font-family: "Brush Script MT", cursive; font-size: 1.5rem; color: #ef476f; }
+
+/* Hearts */
+.heart {
+  position: absolute; font-size: 1.5rem; color: #ef476f;
+  animation: floatUp 6s linear forwards; pointer-events: none; z-index: 5;
+}
+@keyframes floatUp { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-120vh) scale(1.6); opacity: 0; } }
+
+footer { text-align: center; color: var(--muted); padding: 3rem 1rem 4rem; }
